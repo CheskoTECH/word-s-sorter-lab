@@ -1,0 +1,21 @@
+{
+  "name": "socket_lab_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "nodemon client-server.js localhost 9090"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "nodemon": "^2.0.4"
+  }
+}
