@@ -6,7 +6,10 @@ const input = document.getElementById("input");
 // const PORT = process.env.PORT || "localhost:1010"; 
 
 // const ws = new WebSocket(`ws://${PORT}`);
-const ws = new WebSocket(`ws://localhost:5000`);
+
+var HOST = location.origin.replace(/^http/, 'ws');
+
+const ws = new WebSocket(`ws://${HOST}`);
 
 function setStatus(value) {
   status.innerHTML = value;

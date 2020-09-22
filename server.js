@@ -2,7 +2,9 @@ const WebSocket = require("ws");
 
 const PORT = process.env.PORT || 5000;
 
-const server = new WebSocket.Server({ port: PORT });
+var HOST = location.origin.replace(/^http/, 'ws');
+
+const server = new WebSocket.Server({ port: HOST });
 
 var express = require("express");
 
