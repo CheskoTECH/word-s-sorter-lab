@@ -1,6 +1,19 @@
 const WebSocket = require("ws");
 
-const server = new WebSocket.Server({ port: 5000 });
+const PORT = process.env.PORT || 5000;
+
+const server = new WebSocket.Server({ port: PORT });
+
+var express = require("express");
+
+var app = express();
+
+app.use(express.static("public"));
+
+app.get("/", function (req, res) {
+  res.sendfile("index.html");
+});
+
 
 class Sorter {
   constructor(messageString) {
@@ -43,3 +56,4 @@ server.on("connection", (ws) => {
 });
 
 //  node server.js
+app.listen(process.env.PORT || 1010);

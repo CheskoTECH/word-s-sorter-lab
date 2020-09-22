@@ -3,7 +3,7 @@ const messages = document.getElementById("messages");
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 
-// const PORT = process.env.PORT || "localhost:5000"; 
+// const PORT = process.env.PORT || "localhost:1010"; 
 
 // const ws = new WebSocket(`ws://${PORT}`);
 const ws = new WebSocket(`ws://localhost:5000`);
