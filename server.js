@@ -2,13 +2,15 @@ const WebSocket = require("ws");
 
 const PORT = process.env.PORT || 5000;
 
-var HOST = location.origin.replace(/^http/, 'ws');
+const http = require("http");
+// var HOST = location.origin.replace(/^http/, 'ws');
 
-const server = new WebSocket.Server({ port: HOST });
 
 var express = require("express");
 
 var app = express();
+const httpServer = http.createServer(app)
+
 
 app.use(express.static("public"));
 
@@ -16,6 +18,7 @@ app.get("/", function (req, res) {
   res.sendfile("index.html");
 });
 
+const ws = new WebSocket.Server({ 'server': httpServer });
 
 class Sorter {
   constructor(messageString) {
@@ -37,7 +40,7 @@ class Sorter {
   }
 }
 
-server.on("connection", (ws) => {
+httpServer.on("connection", (ws) => {
   console.log("Server started!");
   ws.on("message", (message) => {
     if (message === "exit") {
@@ -58,4 +61,5 @@ server.on("connection", (ws) => {
 });
 
 //  node server.js
-app.listen(process.env.PORT || 1010);
+// app.listen(process.env.PORT || 1010);
+httpServer.listen(PORT)
