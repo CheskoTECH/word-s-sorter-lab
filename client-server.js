@@ -8,7 +8,7 @@ app.get("/", function (req, res) {
   res.sendfile("index.html");
 });
 
-app.listen(9090);
+app.listen(process.env.PORT || 9090);
 
 console.log("Client started!");
 
